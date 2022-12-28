@@ -8,7 +8,7 @@ from Models.Cores import NotificationMessage
 from ..Notify import Notify
 
 load_dotenv()
-DEBUG_MODE: bool = getenv("DEBUG_MODE").lower() == "true"
+DEBUG_MODE: bool = str(getenv("DEBUG_MODE")).lower() == "true"
 DEFAULT_CHANNEL: str = str(getenv("DEFAULT_CHANNEL"))
 
 
