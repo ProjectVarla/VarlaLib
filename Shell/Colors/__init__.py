@@ -4,8 +4,6 @@
 
 from enum import Enum
 
-from tabulate import tabulate
-
 
 class Foreground(Enum):
     DEFAULT = ""
@@ -80,6 +78,8 @@ def Colorize(
 
 
 def print_options():
+    from tabulate import tabulate
+
     list = []
     for color in Foreground:
         list.append([Colorize(foreground=color, style=style) for style in Modifier])
