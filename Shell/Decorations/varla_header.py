@@ -8,7 +8,7 @@ from ..Colors import Foreground as FG
 from ..Colors import Modifier
 
 TOP_TEXT = "PROJECT"
-BOTTOM_TEXT = settings.APP_NAME
+BOTTOM_TEXT = settings.APP_NAME.upper()
 
 varla_logo_slices = [
     Colorize(
