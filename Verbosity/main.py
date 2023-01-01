@@ -4,12 +4,12 @@ from pprint import pprint
 
 from dotenv import load_dotenv
 from Models.Cores import NotificationMessage
-
+from conf import settings
 from ..Notify import Notify
 
 load_dotenv()
 DEBUG_MODE: bool = str(getenv("DEBUG_MODE")).lower() == "true"
-DEFAULT_CHANNEL: str = str(getenv("DEFAULT_CHANNEL"))
+DEFAULT_CHANNEL = settings.DEFAULT_CHANNEL
 
 
 class Verbosity(Enum):
