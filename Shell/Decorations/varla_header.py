@@ -7,8 +7,12 @@ from ..Colors import Colorize
 from ..Colors import Foreground as FG
 from ..Colors import Modifier
 
-TOP_TEXT = "PROJECT"
-BOTTOM_TEXT = settings.APP_NAME.upper()
+TOP_TEXT: str = (
+    settings.APP_TYPE.upper() if "APP_TYPE" in settings.dict() else "PROJECT"
+)
+BOTTOM_TEXT: str = (
+    settings.APP_NAME.upper() if "APP_NAME" in settings.dict() else "VARLA-NEWAPP"
+)
 
 varla_logo_slices = [
     Colorize(
