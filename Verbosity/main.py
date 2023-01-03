@@ -1,15 +1,13 @@
 from enum import Enum, auto
-from os import getenv
 from pprint import pprint
 
-from dotenv import load_dotenv
-from Models.Cores import NotificationMessage
 from conf import settings
+from Models.Cores import NotificationMessage
+
 from ..Notify import Notify
 
-load_dotenv()
-DEBUG_MODE: bool = str(getenv("DEBUG_MODE")).lower() == "true"
-DEFAULT_CHANNEL = settings.DEFAULT_CHANNEL
+DEBUG_MODE: bool = settings.DEBUG_MODE
+DEFAULT_CHANNEL: str = settings.DEFAULT_CHANNEL
 
 
 class Verbosity(Enum):
