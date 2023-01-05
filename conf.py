@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     APP_NAME: str = "Varla-CLI"
     APP_TYPE: str = "Interface"
 
-    GATEWAY_URL: str
+    GATEWAY_URL: Optional[str]
 
     NOTIFICATION_CORE_URL: Optional[str]
     DEFAULT_CHANNEL: Optional[str]
