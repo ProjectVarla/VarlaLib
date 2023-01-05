@@ -1,1 +1,1 @@
-from .varla_header import varla_header
+from .header import header, varla_text

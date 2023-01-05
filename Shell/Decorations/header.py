@@ -48,19 +48,23 @@ varla_logo_slices = [
 ]
 
 
-def varla_header():
+def header():
+    print(varla_text())
+
+
+def varla_text():
     rows, columns = popen("stty size", "r").read().split()
     columns = max(int(columns), 44)
-
-    print(
-        f"╔═ { Colorize(TOP_TEXT,foreground=FG.YELLOW,style=Modifier.BOLD) } {'═'*floor(columns-(len(TOP_TEXT)+5))}╗"
+    output = ""
+    output += (
+        f"╔═ { Colorize(TOP_TEXT,foreground=FG.YELLOW,style=Modifier.BOLD) } {'═'*floor(columns-(len(TOP_TEXT)+5))}╗\n"
+        + f"║{' '*floor(columns-2)}║\n"
     )
-    print(f"║{' '*floor(columns-2)}║")
     for i in varla_logo_slices:
-        print(
-            f"║{' '*int(((columns-len(i))/2)+4)}{i}{' '*int((ceil((columns-len(i))/2.0))+5)}║"
-        )
-    print(f"║{' '*floor(columns-2)}║")
-    print(
-        f"╚{'═'*floor(columns-(len(BOTTOM_TEXT)+5))} { Colorize(BOTTOM_TEXT,foreground=FG.YELLOW,style=Modifier.BOLD)} ═╝"
+        output += f"║{' '*int(((columns-len(i))/2)+4)}{i}{' '*int((ceil((columns-len(i))/2.0))+5)}║\n"
+
+    output += (
+        f"║{' '*floor(columns-2)}║\n"
+        + f"╚{'═'*floor(columns-(len(BOTTOM_TEXT)+5))} { Colorize(BOTTOM_TEXT,foreground=FG.YELLOW,style=Modifier.BOLD)} ═╝"
     )
+    return output
