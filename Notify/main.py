@@ -6,7 +6,6 @@ from Models.Cores import NotificationMessage
 class Notify:
     @staticmethod
     def push(message: NotificationMessage):
-        print(settings)
         try:
             response = requests.post(
                 f"{settings.NOTIFICATION_CORE_URL}/push", json=message.dict(), timeout=3
