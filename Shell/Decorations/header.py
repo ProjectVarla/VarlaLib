@@ -57,7 +57,7 @@ def varla_text():
     columns = max(int(columns), 44)
     output = ""
     output += (
-        f"╔═ { Colorize(TOP_TEXT,foreground=FG.YELLOW,style=Modifier.BOLD) } {'═'*floor(columns-(len(TOP_TEXT)+5))}╗\n"
+        f"╔═╡ { Colorize(TOP_TEXT,foreground=FG.YELLOW,style=Modifier.BOLD) } ╞{'═'*floor(columns-(len(TOP_TEXT)+8))}═╗\n"
         + f"║{' '*floor(columns-2)}║\n"
     )
     for i in varla_logo_slices:
@@ -65,6 +65,6 @@ def varla_text():
 
     output += (
         f"║{' '*floor(columns-2)}║\n"
-        + f"╚{'═'*floor(columns-(len(BOTTOM_TEXT)+5))} { Colorize(BOTTOM_TEXT,foreground=FG.YELLOW,style=Modifier.BOLD)} ═╝"
+        + f"╚{'═'*floor(columns-(len(BOTTOM_TEXT)+7))}╡ { Colorize(BOTTOM_TEXT,foreground=FG.YELLOW,style=Modifier.BOLD)} ╞═╝"
     )
     return output
