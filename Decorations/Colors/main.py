@@ -57,6 +57,12 @@ class Background(Enum):
     LIGHT_WHITE = "47"
 
 
+class Colors:
+    FG = Foreground
+    BG = Background
+    MD = Modifier
+
+
 def Colorize(
     text: str = "",
     foreground: Foreground = Foreground.DEFAULT,

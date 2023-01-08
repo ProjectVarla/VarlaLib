@@ -5,7 +5,7 @@ from os import system
 
 from CommandCenter.TyperTree import TyperTree
 from VarlaLib.Context import context
-from VarlaLib.Shell import Colorize, Foreground, Modifier, header
+from VarlaLib.Decorations import Colorize, Colors, header
 
 
 class VarlaCLI:
@@ -57,11 +57,11 @@ class VarlaCLI:
                     )
 
     @staticmethod
-    def say(*message: str, color=Foreground.CYAN):
+    def say(*message: str, color=Colors.FG.CYAN):
         print(
             Colorize(
                 text="Varla >> ",
-                style=Modifier.BOLD,
+                style=Colors.MD.BOLD,
                 foreground=color,
             ),
             *message,
@@ -75,8 +75,8 @@ class VarlaCLI:
             return input(
                 Colorize(
                     text="  #   >>  ",
-                    style=Modifier.BOLD,
-                    foreground=Foreground.YELLOW,
+                    style=Colors.MD.BOLD,
+                    foreground=Colors.FG.YELLOW,
                 )
             )
         except KeyboardInterrupt:
@@ -88,12 +88,12 @@ class VarlaCLI:
     def error(*message: str):
         VarlaCLI.say(
             "Oops!, Something went wrong!",
-            color=Foreground.RED,
+            color=Colors.FG.RED,
         )
         VarlaCLI.say(
             "This is what I managed to capture:",
             *message,
-            color=Foreground.RED,
+            color=Colors.FG.RED,
         )
 
     @staticmethod

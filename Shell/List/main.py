@@ -6,7 +6,7 @@ from typing import Optional
 from Models import Pair
 from tabulate import multiline_formats, tabulate
 
-from ..Colors import Background, Colorize, Modifier
+from ...Decorations import Colorize, Colors
 
 multiline_formats["rounded_outline"] = "rounded_outline"
 multiline_formats["simple_outline"] = "simple_outline"
@@ -117,7 +117,7 @@ class Table:
 
         for row in self.rows[x].cells:
             row[y] = Colorize(
-                str(row[y]), background=Background.LIGHT_GRAY, style=Modifier.BLINK
+                str(row[y]), background=Colors.BG.LIGHT_GRAY, style=Colors.MD.BLINK
             )
 
 

@@ -6,7 +6,7 @@ from typing import Any
 from Models import Arrow, Pair
 from pynput import keyboard
 
-from ..Colors import Background, Colorize, Foreground, Modifier
+from ...Decorations import Colorize, Colors
 from ..VarlaCLI import VarlaCLI as Varla
 
 
@@ -174,40 +174,40 @@ class Control:
 
         space = Colorize(
             " ",
-            background=Background.LIGHT_GRAY,
-            foreground=Foreground.BLACK,
-            style=Modifier.BLINK,
+            background=Colors.BG.LIGHT_GRAY,
+            foreground=Colors.FG.BLACK,
+            style=Colors.MD.BLINK,
         )
 
         self.output += "\n" + space
 
         self.output += Colorize(
-            " | ", foreground=Foreground.BLACK, background=Background.LIGHT_GRAY
+            " | ", foreground=Colors.FG.BLACK, background=Colors.BG.LIGHT_GRAY
         ).join(
             [
                 Colorize(
                     "CTRL",
-                    background=Background.LIGHT_GRAY,
-                    foreground=Foreground.BLACK,
-                    style=Modifier.BLINK if self.ctrl else Modifier.NOTHING,
+                    background=Colors.BG.LIGHT_GRAY,
+                    foreground=Colors.FG.BLACK,
+                    style=Colors.MD.BLINK if self.ctrl else Colors.MD.NOTHING,
                 ),
                 Colorize(
                     "ALT",
-                    background=Background.LIGHT_GRAY,
-                    foreground=Foreground.BLACK,
-                    style=Modifier.BLINK if self.alt else Modifier.NOTHING,
+                    background=Colors.BG.LIGHT_GRAY,
+                    foreground=Colors.FG.BLACK,
+                    style=Colors.MD.BLINK if self.alt else Colors.MD.NOTHING,
                 ),
                 Colorize(
                     "SHIFT",
-                    background=Background.LIGHT_GRAY,
-                    foreground=Foreground.BLACK,
-                    style=Modifier.BLINK if self.shift else Modifier.NOTHING,
+                    background=Colors.BG.LIGHT_GRAY,
+                    foreground=Colors.FG.BLACK,
+                    style=Colors.MD.BLINK if self.shift else Colors.MD.NOTHING,
                 ),
                 Colorize(
                     "ESC",
-                    background=Background.LIGHT_GRAY,
-                    foreground=Foreground.BLACK,
-                    style=Modifier.BLINK if self.esc else Modifier.NOTHING,
+                    background=Colors.BG.LIGHT_GRAY,
+                    foreground=Colors.FG.BLACK,
+                    style=Colors.MD.BLINK if self.esc else Colors.MD.NOTHING,
                 ),
             ]
         )
