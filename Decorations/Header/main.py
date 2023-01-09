@@ -57,16 +57,19 @@ varla_logo_slices = [
 ]
 
 
-def header():
-    print(varla_text())
+def header(top_text: str = "", bottom_text: str = ""):
+    top_text = top_text if top_text else TOP_TEXT
+    bottom_text = bottom_text if bottom_text else BOTTOM_TEXT
+
+    print(varla_text(top_text, bottom_text))
 
 
-def varla_text():
+def varla_text(top_text: str, bottom_text: str):
     rows, columns = popen("stty size", "r").read().split()
     columns = max(int(columns), 44)
     output = ""
     output += (
-        f"╔═╡ { Colorize(TOP_TEXT,foreground=Colors.FG.YELLOW,style=Colors.MD.BOLD) } ╞{'═'*floor(columns-(len(TOP_TEXT)+8))}═╗\n"
+        f"╔═╡ { Colorize(top_text,foreground=Colors.FG.YELLOW,style=Colors.MD.BOLD) } ╞{'═'*floor(columns-(len(top_text)+8))}═╗\n"
         + f"║{' '*floor(columns-2)}║\n"
     )
     for i in varla_logo_slices:
@@ -75,6 +78,6 @@ def varla_text():
 
     output += (
         f"║{' '*floor(columns-2)}║\n"
-        + f"╚{'═'*floor(columns-(len(BOTTOM_TEXT)+7))}╡ { Colorize(BOTTOM_TEXT,foreground=Colors.FG.YELLOW,style=Colors.MD.BOLD)} ╞═╝"
+        + f"╚{'═'*floor(columns-(len(bottom_text)+7))}╡ { Colorize(bottom_text,foreground=Colors.FG.YELLOW,style=Colors.MD.BOLD)} ╞═╝"
     )
     return output

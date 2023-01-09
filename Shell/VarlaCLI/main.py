@@ -57,10 +57,10 @@ class VarlaCLI:
                     )
 
     @staticmethod
-    def say(*message: str, color=Colors.FG.CYAN):
+    def say(*message: str, color=Colors.FG.CYAN, name="Varla"):
         print(
             Colorize(
-                text="Varla >> ",
+                text=f"{name} >> ",
                 style=Colors.MD.BOLD,
                 foreground=color,
             ),
@@ -107,6 +107,6 @@ class VarlaCLI:
             print("         ", i, readline.get_history_item(i))
 
     @staticmethod
-    def clear() -> None:
+    def clear(top_text: str = "", bottom_text: str = "") -> None:
         system("cls||clear")
-        header()
+        header(top_text, bottom_text)
